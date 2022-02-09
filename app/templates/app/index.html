@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+    
+    
+    {% block content %}
+    {% load static %}
+    <div class="form-wrapper">
+
+        <form class="add_your_class" method="get" action="{% url 'search' %}" >
+            <input class="filter-query" type="search" name="search" placeholder="Filter by type of item"> 
+            <button class="add_your_class" type="submit"> Search </button>
+        </form>
+
+        <form class="add_your_class" method="get" action="{% url 'search' %}" >
+            <input class="add_your_class" type="search" name="search" placeholder="Filter by text"> 
+            <button class="add_your_class" type="submit"> Search </button>
+        </form>
+    </div>
+
+    <div class="wrapper">
+        {% for item in data %}
+        <div class="content">
+            <p>Author: {{ item.by }}</p> 
+            <p>ID: {{ item.id }}</p>
+            <p>Scores: {{ item.score }}</p>
+            <p>Title: {{ item.title }}</p>
+            <p>Type: {{ item.type}}</p>
+            <p>Source url: <a href="{{ item.url }}" target="_blank"><button>See News</button></a> </p>
+            <hr>
+        </div>
+        {% endfor %}
+
+        <div class="pagination">
+            {% if data.has_previous %}
+            <a href="{% url 'index' %}?page={{ data.previous_page_number }}"><button>Prev.Page</button></a>
+            {% endif %}
+            {% if data.has_next %}
+            <a href="{% url 'index' %}?page={{ data.next_page_number }}"><button>Next Page</button></a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+   
+</body>

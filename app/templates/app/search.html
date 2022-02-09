@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/search_result.css' %}?{% now 'U' %}">
+    {% load static %}
+    {% for news in all_search_results %}
+    <!-- <div class="wrap"> -->
+    <h4>Search Content</h4>
+    <div class="contents">
+        <p>Author: {{ news.by}}</p>
+        <p>ID: {{ news.id}}</p>
+        <p>Scores: {{ news.score}}</p>
+        <p>Title: {{ news.title}}</p>
+        <p>Type: {{ news.type}}</p>
+        <hr>
+        <p>URL: <a href="{{ news.url }}" target="_blank"><button> News source</button></a> </p>
+        {% empty %}
+        <h2>No results found</h2>
+    </div>
+    <!-- </div> -->
+    {% endfor %}
+
+    {% endblock %}
