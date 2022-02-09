@@ -1,4 +1,4 @@
-## THIS IS A NEWS WEB APPLICATION
+### THIS IS A NEWS WEB APPLICATION
 
 ## Challenge
 
@@ -23,14 +23,14 @@ It is also important to expose an API so that our data can be consumed:
 `POST` : Add new items to the database (not present in Hacker News);
 
 
-## Bonus
+## Bonus
 
 - Only display top-level items in the list, and display their children (comments, for example) on a detail page;
 
 - In the API, allow updating and deleting items if they were created in the API (but never data that was retrieved from Hacker News);
 
 
-###  Setting Up For Local Development
+## Setting Up For Local Development
 
 * Start up Django sever/App:
 
